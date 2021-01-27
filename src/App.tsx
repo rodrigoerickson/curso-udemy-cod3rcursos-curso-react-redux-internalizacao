@@ -1,13 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
-import { Card } from './componentes/Card';
+import React from 'react';
+import Intervalo from './componentes/Intervalo';
 
 function App() {
     return (
         <div className="App">
-            <Card color="Blue" title="Intervalo de Números">
-                <span>teste</span>
-            </Card>
+            <h1>Exercício React-Redux (Simples)</h1>
+            <div className="linha">
+                <Intervalo></Intervalo>
+            </div>
         </div>
     );
 }
