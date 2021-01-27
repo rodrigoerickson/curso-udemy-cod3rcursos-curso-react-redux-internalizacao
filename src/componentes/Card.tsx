@@ -6,7 +6,7 @@ interface CardProps {
     title:string
 }
 
-export const Card: FunctionComponent<CardProps> = (props) => {
+const Card: FunctionComponent<CardProps> = (props) => {
     return (
         <div className={`Card ${props.color}`}>
             <div className="Header">
@@ -18,3 +18,5 @@ export const Card: FunctionComponent<CardProps> = (props) => {
         </div>
     )
 }
+
+export default Card;
