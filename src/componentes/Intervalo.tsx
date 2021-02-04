@@ -39,17 +39,17 @@ function mapStateToProps (state:{numeros:numeros}){
     }
 }
 
-// function mapDispatchToProp(dispatch:any){
-//     return {
-//         alterarMinimo(novoNumero:number){
-//             const action = alterarNumeroMinimo(novoNumero);
-//             dispatch(action);
-//         },
-//         alterarMaximo(novoNumero:number){
-//             const action = alterarNumeroMaximo(novoNumero);
-//             dispatch(action);
-//         }
-//     }
-// }
+function mapDispatchToProp(dispatch:any){
+    return {
+        alterarMinimo(novoNumero:number){
+            const action = alterarNumeroMinimo(novoNumero);
+            dispatch(action);
+        },
+        alterarMaximo(novoNumero:number){
+            const action = alterarNumeroMaximo(novoNumero);
+            dispatch(action);
+        }
+    }
+}
 
-export default connect(mapStateToProps)(Intervalo);
+export default connect(mapStateToProps, mapDispatchToProp)(Intervalo);
