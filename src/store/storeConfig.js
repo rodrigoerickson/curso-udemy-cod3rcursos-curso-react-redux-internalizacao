@@ -2,7 +2,7 @@ import { createStore, combineReducers, bindActionCreators } from 'redux';
 
 const reducers = combineReducers({
     numeros:function (state,action){
-        switch(actinos.type){
+        switch(action.type){
             case 'NUM_MIN_ALTERADO':
                 return {
                     ...state,
