@@ -15,8 +15,8 @@ function App() {
             </div>
             <div className="linha">
                 <Media></Media>
-                {/* <Soma></Soma> */}
-                {/* <Sorteio></Sorteio> */}
+                <Soma></Soma>
+                <Sorteio></Sorteio>
             </div>
         </div>
     );
