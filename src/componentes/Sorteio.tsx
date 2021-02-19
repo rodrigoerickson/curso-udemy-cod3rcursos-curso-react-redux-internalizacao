@@ -1,9 +1,13 @@
 import React from "react";
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 import Card from "./Card";
 import { numeros } from './interfaces';
 
-function Sorteio(props: any) {
+const connector = connect(mapStateToProps);
+type PropsFromRedux = ConnectedProps<typeof connector>
+type Props = PropsFromRedux;
+
+function Sorteio(props: Props) {
     const { min, max } = props;
     const aleatorio = parseInt((Math.random() * (parseInt(max) - parseInt(min))) + min);
     return (
@@ -18,11 +22,11 @@ function Sorteio(props: any) {
     );
 }
 
-function mapStateToProp(state:{numeros:numeros}) {
+function mapStateToProps(state:{numeros:numeros}) {
     return {
         min: state.numeros.min,
         max: state.numeros.max,
     };
 }
 
-export default connect(mapStateToProp)(Sorteio);
+export default connector(Sorteio);
