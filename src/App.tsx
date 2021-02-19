@@ -4,6 +4,7 @@ import Intervalo from './componentes/Intervalo';
 import Media from './componentes/Media';
 import Soma from './componentes/Soma';
 import Sorteio from './componentes/Sorteio';
+import Teste from './componentes/Teste';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
                 <Soma></Soma>
                 <Sorteio></Sorteio>
             </div>
+            <Teste backgroundColor="blue"></Teste>
         </div>
     );
 }

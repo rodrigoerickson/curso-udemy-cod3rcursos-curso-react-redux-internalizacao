@@ -3,9 +3,13 @@ import React from "react";
 import Card from "./Card";
 import { alterarNumeroMaximo, alterarNumeroMinimo } from '../store/actions/numeros'
 import { numeros } from './interfaces';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 
-function Intervalo(props: any) {
+const connector = connect(mapStateToProps, mapDispatchToProp);
+type PropsFromRedux = ConnectedProps<typeof connector>
+type Props = PropsFromRedux;
+
+function Intervalo(props: Props) {
     const { min, max } = props;
 
     return (
@@ -52,4 +56,4 @@ function mapDispatchToProp(dispatch:any){
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProp)(Intervalo);
+export default connector(Intervalo)
