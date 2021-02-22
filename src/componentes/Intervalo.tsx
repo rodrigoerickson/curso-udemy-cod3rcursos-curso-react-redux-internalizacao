@@ -1,9 +1,10 @@
 import "./Intervalo.css";
 import React from "react";
 import Card from "./Card";
-import { alterarNumeroMaximo, alterarNumeroMinimo } from '../store/actions/numeros'
-import { numeros } from './interfaces';
+import { AlterarNumeroAction, alterarNumeroMaximo, alterarNumeroMinimo, AlterarNumeroParamAction } from '../store/actions/numeros'
 import { connect, ConnectedProps } from 'react-redux';
+import { Dispatch } from 'redux';
+import { mapStateToProps } from '../store/reducers/numeros';
 
 const connector = connect(mapStateToProps, mapDispatchToProp);
 type PropsFromRedux = ConnectedProps<typeof connector>
@@ -36,20 +37,13 @@ function Intervalo(props: Props) {
     );
 }
 
-function mapStateToProps (state:{numeros:numeros}){
+function mapDispatchToProp(dispatch:Dispatch<AlterarNumeroAction>){
     return {
-        min: state.numeros.min,
-        max: state.numeros.max,
-    }
-}
-
-function mapDispatchToProp(dispatch:any){
-    return {
-        alterarMinimo(novoNumero:number){
+        alterarMinimo(novoNumero:AlterarNumeroParamAction['novoNumero']){
             const action = alterarNumeroMinimo(novoNumero);
             dispatch(action);
         },
-        alterarMaximo(novoNumero:number){
+        alterarMaximo(novoNumero:AlterarNumeroParamAction['novoNumero']){
             const action = alterarNumeroMaximo(novoNumero);
             dispatch(action);
         }

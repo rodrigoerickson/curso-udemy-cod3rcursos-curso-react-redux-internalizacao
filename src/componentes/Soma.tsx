@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect, ConnectedProps } from 'react-redux'
+import { mapStateToProps } from '../store/reducers/numeros';
 import Card from './Card'
-import { numeros } from './interfaces'
 
 const connector = connect(mapStateToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>
@@ -19,13 +19,6 @@ function Soma(props: Props) {
             </div>
         </Card>
     )
-}
-
-function mapStateToProps(state:{numeros:numeros}) {
-    return {
-        min: state.numeros.min,
-        max: state.numeros.max,
-    }
 }
 
 export default connector(Soma)
